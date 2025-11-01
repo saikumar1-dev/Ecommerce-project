@@ -105,9 +105,14 @@ function update(){
 })}
 
 function cartItem(a){
-// let cartmain=document.createElement('div');
-// cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id="removebtn">remove</button>';
-//  cartitem.appendChild(cartmain);
-}
+  if(cart.length==0){
+    cartitem.innerHTML="<h2>No items available</h2>";
+  }
+  else{
+ let cartmain=document.createElement('div');
+ cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id="removebtn">remove</button>';
+  cartitem.appendChild(cartmain);
+}}
+cartItem();
 
 

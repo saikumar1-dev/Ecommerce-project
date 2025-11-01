@@ -6,7 +6,7 @@ nav{
     height: 60px;
     background-color: aquamarine;
 }
-h3{
+nav>h3{
     position: relative;
     top: 15px;
     left: 10px;
@@ -111,6 +111,9 @@ a{
         width: 98%;
         margin-left: 0.9%;
     }
+    #cart-item{
+        width: 90%;
+    }
 }
 #cart > div>h3{
         font-variant:small-caps;
@@ -127,58 +130,72 @@ a{
    
 
 } */
-#cart > div>div{
+#cart-item{
     width: 100%;
     height:fit-content;
-     
-      margin-top: 30px;
- display: flex;
+    margin-top: 30px;
+    display: flex;
     gap:15px;
     flex-wrap: wrap;
+    justify-content: center;
 }
-#cart > div>div>div{
+#cart-item>div{
     width: 80%;
-    height: 70px;
+    height: 80px;
    border: 1px solid rgb(91, 88, 88);
-   margin-left: 9%;
    border-radius: 4px;
-   padding-bottom: 5px;
-
-}
-#cart-item > div >div{
-    /* border: 1px solid black; */
-    height: 55%;
-    padding-top: 8px;
-    width: 82%;
-    position: relative;
-    left: 65px;
-    overflow: hidden;
-    border-bottom: double rgb(46, 43, 43);
-    padding-left: 4px;
-}
-#cart-item > div >img{
-    width: 50px;
-    height: 60px;
-    position: relative;
-    left: -60px;
-    top: -40px;
-    border-right: double black;
-    padding-right: 5px;
-    
-}
-
-#cart-item > div >h3{
-    position: relative;
-    top: -40px;
-    left: 80px;
+   position :relative;
 }
 #cart-item > div >button{
     width: 70px;
     border: none;
     background-color: aquamarine;
     border-radius: 4px;
-    position: relative;
-    top: -42px;
-    left: 180px;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
     padding:3px 5px;
 }
+#cart-item>div>div:first-child{
+    width: 80%;
+    position: absolute;
+    height: 38px;
+    overflow: hidden;
+    right: 0;
+    top: 5%;
+    padding: 1px 3px;
+    border-bottom: double rgb(11, 11, 11);
+}
+
+#cart-item>div>div:nth-child(3){
+    width: 17%;
+    height: 70px;
+    position: absolute;
+    top: 1px;
+    border-right: double black;
+    padding: 1px;
+}
+#cart-item>div>div:nth-child(3)>img{
+    width: 97%;
+    height: 97%;
+}
+#cart-item>div>h3{
+    position: absolute;
+    left: 21%;
+    bottom: 6px;
+    height: 20px;
+    
+}
+
+/*#cart-item {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px dashed red;
+}
+#cart-item>div {
+  background-color: rgba(31, 167, 83, 0.623);
+  border: 1px dashed rgba(44, 194, 89, 0.507);
+}
+ #cart-item>div>div:first-child {
+  background-color: rgba(193, 119, 29, 0.623);
+  border: 1px dashed rgba(224, 121, 10, 0.507);
+} */
