@@ -1,7 +1,7 @@
 
  let main=document.querySelector('.main');
  let count=document.querySelector('.count');
- let aa=document.querySelector('a');
+ let aa=document.querySelector('.nav-cartbtn');
  let cartpage=document.querySelector('#cart');
  cartpage.style.display='none';
  let cartitem=document.querySelector('#cart-item');
@@ -22,7 +22,7 @@ let a = async () => {
    })
 }
   a();
-
+  
 function card(a){
  let container=document.createElement('div');
  container.className='container';
@@ -61,8 +61,8 @@ function addProduct(aid){
  cart.push(arr[aid]);
 //  console.log(cart);
 count.innerText='cart('+cart.length+')';
-update();
-alert('product added to cart');
+// update();
+// alert('product added to cart');
 }
 function removeProduct(aid){
   let i=0;
@@ -73,8 +73,9 @@ function removeProduct(aid){
       // console.log(cart[i].id);
       // console.log('i='+i);
       cart.splice(i,1);
-      count.innerText='cart('+cart.length+')'; 
-      update();
+      count.innerText='cart('+cart.length+')';
+         console.log(cart);
+      //  update();
       break;
 
     }
@@ -89,6 +90,7 @@ aa.addEventListener('click',()=>{
    main.style.opacity='0';
    cartpage.style.display='block';
    cartpage.className='cartpage';
+   cartUpdate();
   }
   else{
     count.innerText='cart('+cart.length+')';
@@ -98,21 +100,28 @@ aa.addEventListener('click',()=>{
  }
 })
 
-function update(){
+function cartUpdate(){
   cartitem.innerHTML='';
   cart.map((a)=>{
-  cartItem(a);
+  cartItemBuild(a);
 })}
-
-function cartItem(a){
+function cartItemBuild(a){
   if(cart.length==0){
     cartitem.innerHTML="<h2>No items available</h2>";
   }
   else{
  let cartmain=document.createElement('div');
- cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id="removebtn">remove</button>';
+ cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id='+a.id+' class=removebtn >remove</button>';
   cartitem.appendChild(cartmain);
 }}
-cartItem();
+cartItemBuild();
+cartitem.addEventListener('click',(e)=>{
+  let aid=e.target.id;
+  removeProduct(aid-1);
+  e.target.parentElement.remove();
+ if(cart.length==0)cartItemBuild();
+})
+
+
 
 
