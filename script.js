@@ -90,7 +90,7 @@ aa.addEventListener('click',()=>{
    main.style.opacity='0';
    cartpage.style.display='block';
    cartpage.className='cartpage';
-   cartUpdate();
+   cartItemBuild();
   }
   else{
     count.innerText='cart('+cart.length+')';
@@ -114,7 +114,7 @@ function cartItemBuild(a){
  cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id='+a.id+' class=removebtn >remove</button>';
   cartitem.appendChild(cartmain);
 }}
-cartItemBuild();
+
 cartitem.addEventListener('click',(e)=>{
   let aid=e.target.id;
   removeProduct(aid-1);
