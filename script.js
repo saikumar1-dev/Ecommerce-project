@@ -59,23 +59,17 @@ function cartbtn(a){
 }
 function addProduct(aid){
  cart.push(arr[aid]);
-//  console.log(cart);
 count.innerText='cart('+cart.length+')';
-// update();
-// alert('product added to cart');
+ alert('product added to cart');
 }
 function removeProduct(aid){
   let i=0;
    let n=parseInt(aid)+1;
-  //  console.log('aid='+n);
   for(;i<cart.length;i++){
     if(cart[i].id==n){
-      // console.log(cart[i].id);
-      // console.log('i='+i);
       cart.splice(i,1);
       count.innerText='cart('+cart.length+')';
          console.log(cart);
-      //  update();
       break;
 
     }
@@ -90,28 +84,31 @@ aa.addEventListener('click',()=>{
    main.style.opacity='0';
    cartpage.style.display='block';
    cartpage.className='cartpage';
-   cartItemBuild();
+   if(cart.length==0)cartItemBuild();
+   else
+   cartUpdate();
   }
   else{
     count.innerText='cart('+cart.length+')';
     cartpage.className='';
     main.style.opacity='1';
+    mainblock.classList.remove('hide');
     cartpage.style.display='none';
  }
 })
 
 function cartUpdate(){
-  cartitem.innerHTML='';
   cart.map((a)=>{
   cartItemBuild(a);
 })}
 function cartItemBuild(a){
   if(cart.length==0){
-    cartitem.innerHTML="<h2>No items available</h2>";
+    cartitem.innerHTML="<h2 id=q>No items available</h2>";
   }
   else{
+    document.querySelector('#q').remove();
  let cartmain=document.createElement('div');
- cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id='+a.id+' class=removebtn >remove</button>';
+  cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id='+a.id+' class=removebtn >remove</button>';
   cartitem.appendChild(cartmain);
 }}
 

@@ -199,3 +199,17 @@ a{
   background-color: rgba(193, 119, 29, 0.623);
   border: 1px dashed rgba(224, 121, 10, 0.507);
 } */
+/* ================================================================================ */
+
+li>button{
+    border: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:aquamarine;
+    font-size: medium;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: contents;
+}
