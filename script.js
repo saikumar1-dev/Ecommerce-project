@@ -5,6 +5,7 @@
  let cartpage=document.querySelector('#cart');
  cartpage.style.display='none';
  let cartitem=document.querySelector('#cart-item');
+ let noitem=document.querySelector('#noitem');
 
 //  count.innerText='dshd';
 //  let container=document.createElement('div');
@@ -71,7 +72,6 @@ function removeProduct(aid){
       count.innerText='cart('+cart.length+')';
          console.log(cart);
       break;
-
     }
   }
   // console.log(i);
@@ -84,8 +84,6 @@ aa.addEventListener('click',()=>{
    main.style.opacity='0';
    cartpage.style.display='block';
    cartpage.className='cartpage';
-   if(cart.length==0)cartItemBuild();
-   else
    cartUpdate();
   }
   else{
@@ -101,12 +99,13 @@ function cartUpdate(){
   cart.map((a)=>{
   cartItemBuild(a);
 })}
+
+
+cartitem.appendChild(noitem)
 function cartItemBuild(a){
-  if(cart.length==0){
-    cartitem.innerHTML="<h2 id=q>No items available</h2>";
-  }
-  else{
-    document.querySelector('#q').remove();
+  if(cart.length!=0){
+    if(noitem.innerText=='No items available') noitem.innerText='';
+    console.dir(cartitem)
  let cartmain=document.createElement('div');
   cartmain.innerHTML='<div>'+a.title+'</div><h3>Rs '+a.price+'</h3><div><img src="'+a.image+'"></div><button id='+a.id+' class=removebtn >remove</button>';
   cartitem.appendChild(cartmain);
@@ -116,7 +115,7 @@ cartitem.addEventListener('click',(e)=>{
   let aid=e.target.id;
   removeProduct(aid-1);
   e.target.parentElement.remove();
- if(cart.length==0)cartItemBuild();
+ if(cart.length==0)noitem.innerText='No items available';
 })
 
 
